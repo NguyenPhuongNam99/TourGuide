@@ -12,6 +12,7 @@ import axios from 'axios';
 import Toast from 'react-native-toast-message';
 import {loginSchema} from '../../utils/Utils';
 import {useNavigation} from '@react-navigation/native';
+import {MdTour} from 'react-icons/md';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -72,6 +73,7 @@ const Login = () => {
               errors,
             }) => (
               <>
+              
                 <Text style={styles.titleContainer}>Đăng nhập</Text>
                 <View style={styles.containerInput}>
                   <Text style={styles.inputTitle}>Tài khoản</Text>
@@ -86,7 +88,6 @@ const Login = () => {
                 {errors.account && touched.account ? (
                   <Text style={styles.error}>{errors.account}</Text>
                 ) : null}
-
                 <View style={styles.containerInput}>
                   <Text style={styles.inputTitle}>Mật khẩu</Text>
                   <TextInput
@@ -100,7 +101,6 @@ const Login = () => {
                 {errors.password && touched.password ? (
                   <Text style={styles.error}>{errors.password}</Text>
                 ) : null}
-
                 <View style={styles.containerClick}>
                   <TouchableOpacity
                     style={styles.blockClick}

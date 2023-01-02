@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text, Image, FlatList, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {MdTour} from 'react-icons/md';
 
 const Home = () => {
     const data = [
@@ -42,7 +43,9 @@ const Home = () => {
     return (
         <View style={styles.container}>
             <View style={styles.headerContainer}>
-                <View style={styles.headerLeft} />
+                <View style={styles.headerLeft}> 
+             
+                </View>
                 <View style={styles.headerRight}>
                     <Icon name="rocket" size={30} color="#900" />
                 </View>
