@@ -1,21 +1,18 @@
 import React from 'react';
-import {
-  View,
-  Image,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Image, Text, TextInput, TouchableOpacity} from 'react-native';
 import {Formik} from 'formik';
 import axios from 'axios';
 import Toast from 'react-native-toast-message';
 import {loginSchema} from '../../utils/Utils';
 import {useNavigation} from '@react-navigation/native';
-import {MdTour} from 'react-icons/md';
+import {styles} from './styles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { setData } from './loginSlice';
+import { useAppDispatch } from '../../app/store';
 
 const Login = () => {
   const navigation = useNavigation();
+  const dispatch = useAppDispatch();
 
   const submit = async (values: any) => {
     try {
@@ -23,10 +20,13 @@ const Login = () => {
         username: values.account,
         password: values.password,
       };
-      const response = await axios.post(
+      const response: any = await axios.post(
         'http://206.189.37.26:8080/v1/auth/login',
         obj,
       );
+      await AsyncStorage.setItem('@storage_Key', response.data.accesToken);
+      dispatch(setData(response.data))
+
       Toast.show({
         type: 'success',
         text1: 'Hello',
@@ -61,7 +61,6 @@ const Login = () => {
             initialValues={{account: '', password: ''}}
             validationSchema={loginSchema}
             onSubmit={values => {
-              console.log('values', values);
               submit(values);
             }}>
             {({
@@ -73,7 +72,6 @@ const Login = () => {
               errors,
             }) => (
               <>
-              
                 <Text style={styles.titleContainer}>Đăng nhập</Text>
                 <View style={styles.containerInput}>
                   <Text style={styles.inputTitle}>Tài khoản</Text>
@@ -116,68 +114,5 @@ const Login = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  imageBackground: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'green',
-  },
-  headerContainer: {
-    width: '100%',
-    height: '100%',
-    zIndex: 99,
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-  },
-  top: {width: '100%', height: '30%'},
-  bottom: {
-    width: '100%',
-    height: '70%',
-    backgroundColor: 'white',
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
-    paddingHorizontal: 10,
-  },
-  titleContainer: {
-    fontWeight: 'bold',
-    fontSize: 15,
-    paddingTop: 20,
-    marginLeft: 6,
-    color: 'black',
-  },
-  containerInput: {width: '100%', marginTop: 10},
-  inputTitle: {paddingLeft: 4, color: 'black'},
-  input: {
-    width: '100%',
-    height: 40,
-    borderWidth: 1,
-    borderRadius: 15,
-    borderColor: '#D8D8D8',
-    marginTop: 3,
-    paddingLeft: 9,
-  },
-  containerClick: {
-    width: '100%',
-    height: 60,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 40,
-  },
-  blockClick: {
-    width: 160,
-    height: 40,
-    backgroundColor: '#FF5F24',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 10,
-  },
-  error: {color: 'red', marginTop: 3, paddingLeft: 4},
-});
 
 export default Login;

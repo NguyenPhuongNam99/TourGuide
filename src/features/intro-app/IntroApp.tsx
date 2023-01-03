@@ -1,29 +1,20 @@
 import React from 'react';
-
-import {useState} from 'react';
 import {
-  SafeAreaView,
-  StyleSheet,
   View,
   Text,
   Image,
-  Button,
 } from 'react-native';
-
-//import AppIntroSlider to use it
+import { styles } from './styles';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {useNavigation} from '@react-navigation/native';
 
 const IntroApp = () => {
-  const [showRealApp, setShowRealApp] = useState(false);
   const navigation = useNavigation();
 
   const onDone = () => {
-    setShowRealApp(true);
     navigation.navigate('FirstScreen' as never);
   };
   const onSkip = () => {
-    setShowRealApp(true);
   };
 
   const RenderItem = ({item}) => {
@@ -61,43 +52,6 @@ const IntroApp = () => {
 
 export default IntroApp;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    padding: 10,
-    justifyContent: 'center',
-  },
-  titleStyle: {
-    padding: 10,
-    textAlign: 'center',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  paragraphStyle: {
-    padding: 20,
-    textAlign: 'center',
-    fontSize: 16,
-  },
-  introImageStyle: {
-    width: 200,
-    height: 200,
-  },
-  introTextStyle: {
-    fontSize: 18,
-    color: 'white',
-    textAlign: 'center',
-    paddingVertical: 30,
-  },
-  introTitleStyle: {
-    fontSize: 25,
-    color: 'white',
-    textAlign: 'center',
-    marginBottom: 16,
-    fontWeight: 'bold',
-  },
-});
 
 const slides = [
   {

@@ -2,7 +2,6 @@ import React from 'react';
 import {
   View,
   Image,
-  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
@@ -11,8 +10,12 @@ import {Formik} from 'formik';
 import {SignupSchema} from '../../utils/Utils';
 import axios from 'axios';
 import Toast from 'react-native-toast-message';
+import {useNavigation} from '@react-navigation/native';
+import { styles } from './styles';
 
 const SignUp = () => {
+  const navigation = useNavigation();
+
   const submit = async values => {
     try {
       const obj = {
@@ -25,7 +28,7 @@ const SignUp = () => {
         phone_number: '',
         avatar_url: '',
         role: 'hdv',
-        status: 'available',
+        status: 'not-available',
       };
 
       const response = await axios.post(
@@ -35,8 +38,11 @@ const SignUp = () => {
       Toast.show({
         type: 'success',
         text1: 'Hello',
-        text2: 'This is some something 👋',
+        text2: 'Đăng ký thành công 👋',
       });
+      setTimeout(() => {
+        navigation.navigate('Login' as never);
+      }, 1000);
     } catch (error) {
       console.log('error', error);
     }
@@ -133,67 +139,6 @@ const SignUp = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  imageBackground: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'green',
-  },
-  headerContainer: {
-    width: '100%',
-    height: '100%',
-    zIndex: 99,
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-  },
-  top: {width: '100%', height: '30%'},
-  bottom: {
-    width: '100%',
-    height: '70%',
-    backgroundColor: 'white',
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
-    paddingHorizontal: 10,
-  },
-  titleContainer: {
-    fontWeight: 'bold',
-    fontSize: 15,
-    paddingTop: 20,
-    marginLeft: 10,
-    color: 'black',
-  },
-  containerInput: {width: '100%', marginTop: 10},
-  inputTitle: {paddingLeft: 4, color: 'black'},
-  input: {
-    width: '100%',
-    height: 40,
-    borderWidth: 1,
-    borderRadius: 15,
-    borderColor: '#D8D8D8',
-    marginTop: 3,
-    paddingLeft: 9,
-  },
-  containerClick: {
-    width: '100%',
-    height: 60,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 40,
-  },
-  blockClick: {
-    width: 160,
-    height: 40,
-    backgroundColor: '#FF5F24',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 10,
-  },
-  error: {color: 'red', marginTop: 3, paddingLeft: 4},
-});
+
 
 export default SignUp;
