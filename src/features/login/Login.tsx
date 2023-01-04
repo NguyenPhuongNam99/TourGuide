@@ -33,7 +33,7 @@ const Login = () => {
         text2: 'This is some something 👋',
       });
       setTimeout(() => {
-        navigation.navigate('Home' as never);
+        navigation.navigate('StackHomeNavigation' as never);
       }, 900);
       console.log('response new', response);
     } catch (error) {

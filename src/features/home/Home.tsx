@@ -8,24 +8,21 @@ import axios from 'axios';
 
 const Home = () => {
     const value: any = useAppSelector((state) => state.loginSlice.data);
-    console.log('valueeeee', value._id)
-
     const submit = async () => {
-       try {
-                 const token = await AsyncStorage.getItem('@storage_Key');
+        try {
+            const token = await AsyncStorage.getItem('@storage_Key');
 
-         let config = {
-        headers: {
-          Authorization: "Bearer " +token,
-        },
-      };
-        console.log('token', token)
-        const response = await axios.get(`http://206.189.37.26:8080/v1/orderTour/getOrderTourOfIdHDV/${value._id}`, config);
+            let config = {
+                headers: {
+                    Authorization: "Bearer " + token,
+                },
+            };
+            const response = await axios.get(`http://206.189.37.26:8080/v1/orderTour/getOrderTourOfIdHDV/${value._id}`, config);
 
-        console.log('response', response)
-       } catch (error) {
-        console.log('error',error)
-       }
+            console.log('response', response.data)
+        } catch (error) {
+            console.log('error', error)
+        }
     }
 
     useEffect(() => {

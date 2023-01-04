@@ -8,11 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* TourguideTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* TourguideTests.m */; };
-		0C80B921A6F3F58F76C31292 /* libPods-Tourguide.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Tourguide.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7699B88040F8A987B510C191 /* libPods-Tourguide-TourguideTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Tourguide-TourguideTests.a */; };
+		1F875ECC2965175C00394908 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F875EBC2965175B00394908 /* Entypo.ttf */; };
+		1F875ECD2965175C00394908 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F875EBD2965175C00394908 /* FontAwesome5_Solid.ttf */; };
+		1F875ECE2965175C00394908 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F875EBE2965175C00394908 /* Zocial.ttf */; };
+		1F875ECF2965175C00394908 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F875EBF2965175C00394908 /* EvilIcons.ttf */; };
+		1F875ED02965175C00394908 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F875EC02965175C00394908 /* Ionicons.ttf */; };
+		1F875ED12965175C00394908 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F875EC12965175C00394908 /* FontAwesome.ttf */; };
+		1F875ED22965175C00394908 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F875EC22965175C00394908 /* SimpleLineIcons.ttf */; };
+		1F875ED32965175C00394908 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F875EC32965175C00394908 /* AntDesign.ttf */; };
+		1F875ED42965175C00394908 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F875EC42965175C00394908 /* Octicons.ttf */; };
+		1F875ED52965175C00394908 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F875EC52965175C00394908 /* Fontisto.ttf */; };
+		1F875ED62965175C00394908 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F875EC62965175C00394908 /* Foundation.ttf */; };
+		1F875ED72965175C00394908 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F875EC72965175C00394908 /* FontAwesome5_Brands.ttf */; };
+		1F875ED82965175C00394908 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F875EC82965175C00394908 /* Feather.ttf */; };
+		1F875ED92965175C00394908 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F875EC92965175C00394908 /* MaterialCommunityIcons.ttf */; };
+		1F875EDA2965175C00394908 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F875ECA2965175C00394908 /* FontAwesome5_Regular.ttf */; };
+		1F875EDB2965175C00394908 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F875ECB2965175C00394908 /* MaterialIcons.ttf */; };
+		2958C9F604D25E9D2663625C /* libPods-Tourguide.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C49FC62685199CFEBCBCC4C /* libPods-Tourguide.a */; };
+		7D47EC4976C047F457DEEBB5 /* libPods-Tourguide-TourguideTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E1AD7678C0DAA3B373C0BEA /* libPods-Tourguide-TourguideTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -36,13 +52,29 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Tourguide/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tourguide/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Tourguide/main.m; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-Tourguide-TourguideTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tourguide-TourguideTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B4392A12AC88292D35C810B /* Pods-Tourguide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tourguide.debug.xcconfig"; path = "Target Support Files/Pods-Tourguide/Pods-Tourguide.debug.xcconfig"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-Tourguide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tourguide.release.xcconfig"; path = "Target Support Files/Pods-Tourguide/Pods-Tourguide.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-Tourguide-TourguideTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tourguide-TourguideTests.debug.xcconfig"; path = "Target Support Files/Pods-Tourguide-TourguideTests/Pods-Tourguide-TourguideTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-Tourguide.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tourguide.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1774885A32DC74ED9FC785ED /* Pods-Tourguide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tourguide.debug.xcconfig"; path = "Target Support Files/Pods-Tourguide/Pods-Tourguide.debug.xcconfig"; sourceTree = "<group>"; };
+		1C49FC62685199CFEBCBCC4C /* libPods-Tourguide.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tourguide.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F875EBC2965175B00394908 /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Entypo.ttf; path = ../android/app/src/Fonts/Entypo.ttf; sourceTree = "<group>"; };
+		1F875EBD2965175C00394908 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Solid.ttf; path = ../android/app/src/Fonts/FontAwesome5_Solid.ttf; sourceTree = "<group>"; };
+		1F875EBE2965175C00394908 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Zocial.ttf; path = ../android/app/src/Fonts/Zocial.ttf; sourceTree = "<group>"; };
+		1F875EBF2965175C00394908 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = EvilIcons.ttf; path = ../android/app/src/Fonts/EvilIcons.ttf; sourceTree = "<group>"; };
+		1F875EC02965175C00394908 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = ../android/app/src/Fonts/Ionicons.ttf; sourceTree = "<group>"; };
+		1F875EC12965175C00394908 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = ../android/app/src/Fonts/FontAwesome.ttf; sourceTree = "<group>"; };
+		1F875EC22965175C00394908 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SimpleLineIcons.ttf; path = ../android/app/src/Fonts/SimpleLineIcons.ttf; sourceTree = "<group>"; };
+		1F875EC32965175C00394908 /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = ../android/app/src/Fonts/AntDesign.ttf; sourceTree = "<group>"; };
+		1F875EC42965175C00394908 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Octicons.ttf; path = ../android/app/src/Fonts/Octicons.ttf; sourceTree = "<group>"; };
+		1F875EC52965175C00394908 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Fontisto.ttf; path = ../android/app/src/Fonts/Fontisto.ttf; sourceTree = "<group>"; };
+		1F875EC62965175C00394908 /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Foundation.ttf; path = ../android/app/src/Fonts/Foundation.ttf; sourceTree = "<group>"; };
+		1F875EC72965175C00394908 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = ../android/app/src/Fonts/FontAwesome5_Brands.ttf; sourceTree = "<group>"; };
+		1F875EC82965175C00394908 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Feather.ttf; path = ../android/app/src/Fonts/Feather.ttf; sourceTree = "<group>"; };
+		1F875EC92965175C00394908 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = ../android/app/src/Fonts/MaterialCommunityIcons.ttf; sourceTree = "<group>"; };
+		1F875ECA2965175C00394908 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Regular.ttf; path = ../android/app/src/Fonts/FontAwesome5_Regular.ttf; sourceTree = "<group>"; };
+		1F875ECB2965175C00394908 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = ../android/app/src/Fonts/MaterialIcons.ttf; sourceTree = "<group>"; };
+		4083847965959BFABFEA26C8 /* Pods-Tourguide-TourguideTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tourguide-TourguideTests.debug.xcconfig"; path = "Target Support Files/Pods-Tourguide-TourguideTests/Pods-Tourguide-TourguideTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5E1AD7678C0DAA3B373C0BEA /* libPods-Tourguide-TourguideTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tourguide-TourguideTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Tourguide/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-Tourguide-TourguideTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tourguide-TourguideTests.release.xcconfig"; path = "Target Support Files/Pods-Tourguide-TourguideTests/Pods-Tourguide-TourguideTests.release.xcconfig"; sourceTree = "<group>"; };
+		8956765396D59547767F56E8 /* Pods-Tourguide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tourguide.release.xcconfig"; path = "Target Support Files/Pods-Tourguide/Pods-Tourguide.release.xcconfig"; sourceTree = "<group>"; };
+		BD4969AE2338658C602B7B45 /* Pods-Tourguide-TourguideTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tourguide-TourguideTests.release.xcconfig"; path = "Target Support Files/Pods-Tourguide-TourguideTests/Pods-Tourguide-TourguideTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -51,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-Tourguide-TourguideTests.a in Frameworks */,
+				7D47EC4976C047F457DEEBB5 /* libPods-Tourguide-TourguideTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-Tourguide.a in Frameworks */,
+				2958C9F604D25E9D2663625C /* libPods-Tourguide.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,8 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-Tourguide.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-Tourguide-TourguideTests.a */,
+				1C49FC62685199CFEBCBCC4C /* libPods-Tourguide.a */,
+				5E1AD7678C0DAA3B373C0BEA /* libPods-Tourguide-TourguideTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,6 +148,22 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				1F875EC32965175C00394908 /* AntDesign.ttf */,
+				1F875EBC2965175B00394908 /* Entypo.ttf */,
+				1F875EBF2965175C00394908 /* EvilIcons.ttf */,
+				1F875EC82965175C00394908 /* Feather.ttf */,
+				1F875EC12965175C00394908 /* FontAwesome.ttf */,
+				1F875EC72965175C00394908 /* FontAwesome5_Brands.ttf */,
+				1F875ECA2965175C00394908 /* FontAwesome5_Regular.ttf */,
+				1F875EBD2965175C00394908 /* FontAwesome5_Solid.ttf */,
+				1F875EC52965175C00394908 /* Fontisto.ttf */,
+				1F875EC62965175C00394908 /* Foundation.ttf */,
+				1F875EC02965175C00394908 /* Ionicons.ttf */,
+				1F875EC92965175C00394908 /* MaterialCommunityIcons.ttf */,
+				1F875ECB2965175C00394908 /* MaterialIcons.ttf */,
+				1F875EC42965175C00394908 /* Octicons.ttf */,
+				1F875EC22965175C00394908 /* SimpleLineIcons.ttf */,
+				1F875EBE2965175C00394908 /* Zocial.ttf */,
 				13B07FAE1A68108700A75B9A /* Tourguide */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* TourguideTests */,
@@ -140,10 +188,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-Tourguide.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-Tourguide.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-Tourguide-TourguideTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-Tourguide-TourguideTests.release.xcconfig */,
+				1774885A32DC74ED9FC785ED /* Pods-Tourguide.debug.xcconfig */,
+				8956765396D59547767F56E8 /* Pods-Tourguide.release.xcconfig */,
+				4083847965959BFABFEA26C8 /* Pods-Tourguide-TourguideTests.debug.xcconfig */,
+				BD4969AE2338658C602B7B45 /* Pods-Tourguide-TourguideTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -155,12 +203,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "TourguideTests" */;
 			buildPhases = (
-				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
+				F9A30250E1509089EFF974D0 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */,
-				F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */,
+				11F76D99C7B88127C5F67CCA /* [CP] Embed Pods Frameworks */,
+				B994657F783FF8A93D085172 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -176,14 +224,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Tourguide" */;
 			buildPhases = (
-				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				AB6E60767BCCA9DFE5486CBC /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				0B4B1FF22EA29FF862446075 /* [CP] Embed Pods Frameworks */,
+				44809E820E7E60E4AF0D511A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -242,6 +290,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F875ECC2965175C00394908 /* Entypo.ttf in Resources */,
+				1F875ECD2965175C00394908 /* FontAwesome5_Solid.ttf in Resources */,
+				1F875ECE2965175C00394908 /* Zocial.ttf in Resources */,
+				1F875ECF2965175C00394908 /* EvilIcons.ttf in Resources */,
+				1F875ED02965175C00394908 /* Ionicons.ttf in Resources */,
+				1F875ED12965175C00394908 /* FontAwesome.ttf in Resources */,
+				1F875ED22965175C00394908 /* SimpleLineIcons.ttf in Resources */,
+				1F875ED32965175C00394908 /* AntDesign.ttf in Resources */,
+				1F875ED42965175C00394908 /* Octicons.ttf in Resources */,
+				1F875ED52965175C00394908 /* Fontisto.ttf in Resources */,
+				1F875ED62965175C00394908 /* Foundation.ttf in Resources */,
+				1F875ED72965175C00394908 /* FontAwesome5_Brands.ttf in Resources */,
+				1F875ED82965175C00394908 /* Feather.ttf in Resources */,
+				1F875ED92965175C00394908 /* MaterialCommunityIcons.ttf in Resources */,
+				1F875EDA2965175C00394908 /* FontAwesome5_Regular.ttf in Resources */,
+				1F875EDB2965175C00394908 /* MaterialIcons.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -266,7 +330,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+		0B4B1FF22EA29FF862446075 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -283,29 +347,41 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tourguide/Pods-Tourguide-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
+		11F76D99C7B88127C5F67CCA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tourguide-TourguideTests/Pods-Tourguide-TourguideTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Tourguide-TourguideTests-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-Tourguide-TourguideTests/Pods-Tourguide-TourguideTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tourguide-TourguideTests/Pods-Tourguide-TourguideTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+		44809E820E7E60E4AF0D511A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tourguide/Pods-Tourguide-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tourguide/Pods-Tourguide-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tourguide/Pods-Tourguide-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB6E60767BCCA9DFE5486CBC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -327,41 +403,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tourguide-TourguideTests/Pods-Tourguide-TourguideTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tourguide-TourguideTests/Pods-Tourguide-TourguideTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tourguide-TourguideTests/Pods-Tourguide-TourguideTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tourguide/Pods-Tourguide-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Tourguide/Pods-Tourguide-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tourguide/Pods-Tourguide-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
+		B994657F783FF8A93D085172 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -376,6 +418,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tourguide-TourguideTests/Pods-Tourguide-TourguideTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9A30250E1509089EFF974D0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tourguide-TourguideTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -430,7 +494,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-Tourguide-TourguideTests.debug.xcconfig */;
+			baseConfigurationReference = 4083847965959BFABFEA26C8 /* Pods-Tourguide-TourguideTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -457,7 +521,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-Tourguide-TourguideTests.release.xcconfig */;
+			baseConfigurationReference = BD4969AE2338658C602B7B45 /* Pods-Tourguide-TourguideTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -481,7 +545,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-Tourguide.debug.xcconfig */;
+			baseConfigurationReference = 1774885A32DC74ED9FC785ED /* Pods-Tourguide.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -507,7 +571,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-Tourguide.release.xcconfig */;
+			baseConfigurationReference = 8956765396D59547767F56E8 /* Pods-Tourguide.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
