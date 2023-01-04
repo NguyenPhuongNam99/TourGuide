@@ -1,16 +1,26 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, View, Text, Image, FlatList} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  FlatList,
+  ActivityIndicator,
+  TouchableOpacity,
+} from 'react-native';
 import AppIoniconss from '../../components/icon/AppIonicons';
 import AppMaterIcon from '../../components/icon/AppMaterialIcons';
 import {useAppSelector} from '../../app/store';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
 
 const TourGuide = () => {
   const data: any = useAppSelector(state => state.loginSlice.data);
   const [tour, setTour] = useState();
+  const [loading, setLoading] = useState(false);
+  const navigation = useNavigation();
 
-  console.log('data', data);
   const getTourofHDV = async () => {
     try {
       const token = await AsyncStorage.getItem('@storage_Key');
@@ -20,15 +30,16 @@ const TourGuide = () => {
           Authorization: 'Bearer ' + token,
         },
       };
-
+      setLoading(true);
       const response = await axios.get(
         `http://206.189.37.26:8080/v1/orderTour/getOrderTourOfIdHDV/${data._id}`,
         config,
       );
-      console.log('reponse', response.data);
       setTour(response.data);
+      setLoading(false);
     } catch (error) {
       console.log('error', error);
+      setLoading(false);
     }
   };
 
@@ -40,43 +51,49 @@ const TourGuide = () => {
     <View style={styles.container}>
       <View style={styles.headerContainer}>
         <View style={styles.blockHeader}>
-          <AppIoniconss name="chevron-back" />
+          <AppIoniconss name="chevron-back" size={20} onPress={() => navigation.goBack()} />
           <Text style={styles.fontBold}>Tour của bạn </Text>
           <View />
         </View>
       </View>
 
-      <FlatList
-        data={tour}
-        renderItem={({item}) => {
-          return (
-            <View style={styles.containerContent}>
-              <View style={styles.blockContent}>
-                <View style={styles.blockTop}>
-                  <Image
-                    style={styles.image}
-                    source={{
-                      uri: 'https://www.orioly.com/wp-content/uploads/2016/12/qualities-of-a-good-tour-guide-cover-illustration.png',
-                    }}
-                  />
-                </View>
-                <View style={styles.blockBottom}>
-                  <Text style={styles.headerTitle}>{item.tourName}</Text>
-                  <View style={styles.flex}>
-                    <AppMaterIcon
-                      name="place"
-                      color={'#3076FE'}
-                      style={styles.padding}
+      {loading ? (
+        <View style={[styles.container, styles.justify]}>
+          <ActivityIndicator color={'green'} size={30} />
+        </View>
+      ) : (
+        <FlatList
+          data={tour}
+          renderItem={({item}) => {
+            return (
+              <TouchableOpacity style={styles.containerContent} onPress={() => navigation.navigate('TourGuideDetail' as never, {item: item} as never)}>
+                <View style={styles.blockContent}>
+                  <View style={styles.blockTop}>
+                    <Image
+                      style={styles.image}
+                      source={{
+                        uri: item.tourDefault.thumbnail[0].url,
+                      }}
                     />
-                    <Text style={styles.place}> Ha Noi</Text>
                   </View>
-                  <Text style={styles.price}>{item.total_price} dd</Text>
+                  <View style={styles.blockBottom}>
+                    <Text style={styles.headerTitle}>{item.item.tourName}</Text>
+                    <View style={styles.flexContainer}>
+                      <View style={styles.flex}>
+                        <AppMaterIcon name="place" color={'#3076FE'} />
+                        <Text style={styles.place}> Ha Noi</Text>
+                      </View>
+                      <Text style={styles.price}>
+                        {item.item.total_price} dd
+                      </Text>
+                    </View>
+                  </View>
                 </View>
-              </View>
-            </View>
-          );
-        }}
-      />
+              </TouchableOpacity>
+            );
+          }}
+        />
+      )}
     </View>
   );
 };
@@ -152,6 +169,20 @@ const styles = StyleSheet.create({
   price: {
     color: '#FF5F24',
     fontSize: 10,
+    paddingRight: 9,
   },
+  flexContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingTop: 3,
+    // paddingHorizontal:8
+  },
+  justify: {
+    justifyContent: 'center',
+    alignItems:'center',
+    width: '100%',
+    height: '100%'
+  }
 });
 export default TourGuide;

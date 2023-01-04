@@ -11,11 +11,13 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import AppIonicons from '../components/icon/AppIonicons';
 import AppMaterIcon from '../components/icon/AppMaterialIcons';
 import TourGuide from '../features/tourguide/TourGuide';
+import TourGuideDetail from '../features/tour-guide-detail/TourGuideDetail';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 const StackHome = createNativeStackNavigator();
 const RootStack = createNativeStackNavigator();
+const StackTour = createNativeStackNavigator();
 
 export function StackNavigation() {
   return (
@@ -30,6 +32,28 @@ export function StackNavigation() {
       />
     </Stack.Navigator>
   );
+}
+
+
+export function RootStackNavigation() {
+  return (
+    <RootStack.Navigator screenOptions={{headerShown: false}}>
+      <RootStack.Screen name="StackNavigation" component={StackNavigation} />
+      <RootStack.Screen
+        name="StackHomeNavigation"
+        component={StackHomeNavigation}
+      />
+    </RootStack.Navigator>
+  );
+}
+
+export function TourGuideNavigation() {
+  return (
+    <StackTour.Navigator screenOptions={{headerShown: false}}>
+      <StackTour.Screen name='TourGuide' component={TourGuide} />
+      <StackTour.Screen name='TourGuideDetail' component={TourGuideDetail} />
+    </StackTour.Navigator>
+  )
 }
 
 export function StackHomeNavigation() {
@@ -50,8 +74,8 @@ export function StackHomeNavigation() {
         }}
       />
       <Tab.Screen
-        name="TourGuide"
-        component={TourGuide}
+        name="TourGuideNavigation"
+        component={TourGuideNavigation}
         options={{
           tabBarIcon: tabInfo => (
             <AppMaterIcon
@@ -65,17 +89,5 @@ export function StackHomeNavigation() {
         }}
       />
     </Tab.Navigator>
-  );
-}
-
-export function RootStackNavigation() {
-  return (
-    <RootStack.Navigator screenOptions={{headerShown: false}}>
-      <RootStack.Screen name="StackNavigation" component={StackNavigation} />
-      <RootStack.Screen
-        name="StackHomeNavigation"
-        component={StackHomeNavigation}
-      />
-    </RootStack.Navigator>
   );
 }
