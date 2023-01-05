@@ -12,6 +12,8 @@ import AppIonicons from '../components/icon/AppIonicons';
 import AppMaterIcon from '../components/icon/AppMaterialIcons';
 import TourGuide from '../features/tourguide/TourGuide';
 import TourGuideDetail from '../features/tour-guide-detail/TourGuideDetail';
+import TourOrdeDtail from '../features/tour-order-detail/TourOrderDetail';
+import ScheduleOverview from '../features/scheduleOverview/ScheduleOverview';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -34,7 +36,6 @@ export function StackNavigation() {
   );
 }
 
-
 export function RootStackNavigation() {
   return (
     <RootStack.Navigator screenOptions={{headerShown: false}}>
@@ -50,10 +51,12 @@ export function RootStackNavigation() {
 export function TourGuideNavigation() {
   return (
     <StackTour.Navigator screenOptions={{headerShown: false}}>
-      <StackTour.Screen name='TourGuide' component={TourGuide} />
-      <StackTour.Screen name='TourGuideDetail' component={TourGuideDetail} />
+      <StackTour.Screen name="TourGuide" component={TourGuide} />
+      <StackTour.Screen name="TourGuideDetail" component={TourGuideDetail} />
+      <StackTour.Screen name="TourOrdeDtail" component={TourOrdeDtail} />
+      <StackTour.Screen name="ScheduleOverview" component={ScheduleOverview} />
     </StackTour.Navigator>
-  )
+  );
 }
 
 export function StackHomeNavigation() {
@@ -70,7 +73,7 @@ export function StackHomeNavigation() {
               color={tabInfo.focused ? '#FF5F24' : '#9A9A9A'}
             />
           ),
-          title:'Trang chủ'
+          title: 'Trang chủ',
         }}
       />
       <Tab.Screen
@@ -84,8 +87,7 @@ export function StackHomeNavigation() {
               color={tabInfo.focused ? '#FF5F24' : '#9A9A9A'}
             />
           ),
-          title:'Tour của bạn'
-
+          title: 'Tour của bạn',
         }}
       />
     </Tab.Navigator>

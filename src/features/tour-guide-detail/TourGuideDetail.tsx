@@ -1,15 +1,65 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import AppIonicons from '../../components/icon/AppIonicons';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useNavigation} from '@react-navigation/native';
 
 const TourGuideDetail = ({route}) => {
   const {item} = route.params;
-  console.log('itemtt', item);
+  const [dataResponse, setDataResponse] = useState<any>();
+  const navigation = useNavigation();
+
+  const confirmTour = async () => {
+    try {
+      const token = await AsyncStorage.getItem('@storage_Key');
+
+      const data = {
+        status: 'xác nhận',
+      };
+      const response = await axios.put(
+        `http://206.189.37.26:8080/v1/orderTour/onlyUpdateStatusTour/${item.item._id}`,
+        data,
+        {
+          headers: {
+            Authorization: 'Bearer ' + token,
+          },
+        },
+      );
+
+      setDataResponse(response.data);
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
+
+  const finishTour = async () => {
+    try {
+      const token = await AsyncStorage.getItem('@storage_Key');
+
+      const dataFinish = {
+        status: 'finish',
+      };
+      const response = await axios.put(
+        `http://206.189.37.26:8080/v1/orderTour/onlyUpdateStatusTour/${item.item._id}`,
+        dataFinish,
+        {
+          headers: {
+            Authorization: 'Bearer ' + token,
+          },
+        },
+      );
+      setDataResponse(response.data);
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.headerTitle}>
         <View style={styles.blockHeader}>
-          <AppIonicons name="arrow-back" size={18} />
+          <AppIonicons name="arrow-back" size={18} onPress={() => navigation.goBack()} />
           <Text style={styles.headerTitleContent}>Chi tiết chuyến đi</Text>
         </View>
       </View>
@@ -34,7 +84,11 @@ const TourGuideDetail = ({route}) => {
         </Text>
       </View>
 
-      <TouchableOpacity style={styles.Tourdetail}>
+      <TouchableOpacity
+        style={styles.Tourdetail}
+        onPress={() =>
+          navigation.navigate('TourOrdeDtail' as never, {item: item} as never)
+        }>
         <View style={styles.blockTour}>
           <View style={styles.tourLeft}>
             <Image
@@ -49,8 +103,29 @@ const TourGuideDetail = ({route}) => {
         </View>
       </TouchableOpacity>
       <View style={styles.clickContainer}>
-        <TouchableOpacity style={styles.clickBlock}>
-          <Text style={styles.colorClick}>Xác nhận Tour</Text>
+        <TouchableOpacity
+          style={styles.clickBlock}
+          onPress={() =>
+            String(dataResponse?.status) === 'xác nhận' ||
+            String(item.item.status) === 'xác nhận'
+              ? finishTour()
+              : String(dataResponse?.status) === 'chờ xác nhận ' ||
+                String(item.item.status) === 'chờ xác nhận '
+              ? confirmTour()
+              : null
+          }>
+          <Text style={styles.colorClick}>
+            {String(dataResponse?.status) === 'xác nhận' ||
+            String(item.item.status) === 'xác nhận'
+              ? 'Hoàn thành'
+              : String(dataResponse?.status) === 'chờ xác nhận ' ||
+                String(item.item.status) === 'chờ xác nhận '
+              ? 'Xác nhận Tour'
+              : String(dataResponse?.status) === 'finish' ||
+                String(item.item.status) === 'finish'
+              ? 'Tour kết thúc'
+              : ''}
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -160,7 +235,7 @@ const styles = StyleSheet.create({
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 50
+    marginTop: 50,
   },
   clickBlock: {
     width: 200,
@@ -171,8 +246,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#FF5F24',
   },
   colorClick: {
-    color: 'white'
-  }
+    color: 'white',
+  },
 });
 
 export default TourGuideDetail;
