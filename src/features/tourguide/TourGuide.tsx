@@ -14,12 +14,14 @@ import {useAppSelector} from '../../app/store';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
+import { useIsFocused } from '@react-navigation/native';
 
 const TourGuide = () => {
   const data: any = useAppSelector(state => state.loginSlice.data);
   const [tour, setTour] = useState();
   const [loading, setLoading] = useState(false);
   const navigation = useNavigation();
+  const isFocused = useIsFocused();
 
   const getTourofHDV = async () => {
     try {
@@ -45,7 +47,7 @@ const TourGuide = () => {
 
   useEffect(() => {
     getTourofHDV();
-  }, []);
+  }, [isFocused]);
 
   return (
     <View style={styles.container}>
@@ -64,9 +66,9 @@ const TourGuide = () => {
       ) : (
         <FlatList
           data={tour}
-          renderItem={({item}) => {
+          renderItem={({item, index}) => {
             return (
-              <TouchableOpacity style={styles.containerContent} onPress={() => navigation.navigate('TourGuideDetail' as never, {item: item} as never)}>
+              <TouchableOpacity style={styles.containerContent} onPress={() => navigation.navigate('TourGuideDetail' as never, {item: item, index: index} as never)}>
                 <View style={styles.blockContent}>
                   <View style={styles.blockTop}>
                     <Image

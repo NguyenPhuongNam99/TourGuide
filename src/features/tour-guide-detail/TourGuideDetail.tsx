@@ -1,19 +1,31 @@
-import React, {useState} from 'react';
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native';
 import AppIonicons from '../../components/icon/AppIonicons';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
+import {useAppSelector} from '../../app/store';
 
 const TourGuideDetail = ({route}) => {
-  const {item} = route.params;
+  const {item, index} = route.params;
   const [dataResponse, setDataResponse] = useState<any>();
   const navigation = useNavigation();
+  const data: any = useAppSelector(state => state.loginSlice.data);
+  const [loading, setLoading] = useState(false);
+  const [tour, setTour] = useState<any>();
+  console.log('index', index)
 
   const confirmTour = async () => {
     try {
       const token = await AsyncStorage.getItem('@storage_Key');
-
+      setLoading(true);
       const data = {
         status: 'xác nhận',
       };
@@ -26,19 +38,24 @@ const TourGuideDetail = ({route}) => {
           },
         },
       );
+      console.log('response', response);
+      setLoading(false);
 
       setDataResponse(response.data);
     } catch (error) {
       console.log('error', error);
+      setLoading(false);
     }
   };
 
   const finishTour = async () => {
     try {
       const token = await AsyncStorage.getItem('@storage_Key');
+      setLoading(true);
 
       const dataFinish = {
         status: 'finish',
+        userHDVID: data._id,
       };
       const response = await axios.put(
         `http://206.189.37.26:8080/v1/orderTour/onlyUpdateStatusTour/${item.item._id}`,
@@ -49,20 +66,70 @@ const TourGuideDetail = ({route}) => {
           },
         },
       );
-      setDataResponse(response.data);
+      setLoading(false);
+
+      setTour(response.data);
     } catch (error) {
       console.log('error', error);
+      setLoading(false);
     }
   };
+
+  const getTourofHDV = async () => {
+    try {
+      const token = await AsyncStorage.getItem('@storage_Key');
+
+      let config = {
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      };
+      console.log('dataa', data._id)
+      setLoading(true);
+      const response = await axios.get(
+        `http://206.189.37.26:8080/v1/orderTour/getOrderTourOfIdHDV/${data._id}`,
+        config,
+      );
+
+      console.log('repo', response.data[index].item)
+      setTour(response.data[index].item);
+      setLoading(false);
+    } catch (error) {
+      console.log('error', error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getTourofHDV();
+  }, []);
+
+  console.log(' String(tour?.status) === ',  tour)
 
   return (
     <View style={styles.container}>
       <View style={styles.headerTitle}>
         <View style={styles.blockHeader}>
-          <AppIonicons name="arrow-back" size={18} onPress={() => navigation.goBack()} />
+          <AppIonicons
+            name="arrow-back"
+            size={18}
+            onPress={() => navigation.goBack()}
+          />
           <Text style={styles.headerTitleContent}>Chi tiết chuyến đi</Text>
         </View>
       </View>
+      {loading && (
+        <View
+          style={{
+            width: '100%',
+            height: '100%',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 99,
+          }}>
+          <ActivityIndicator size={'large'} color={'green'} />
+        </View>
+      )}
 
       <View style={styles.containerContent}>
         <View style={styles.contentLeft}>
@@ -102,32 +169,34 @@ const TourGuideDetail = ({route}) => {
           </View>
         </View>
       </TouchableOpacity>
-      <View style={styles.clickContainer}>
-        <TouchableOpacity
-          style={styles.clickBlock}
-          onPress={() =>
-            String(dataResponse?.status) === 'xác nhận' ||
-            String(item.item.status) === 'xác nhận'
-              ? finishTour()
-              : String(dataResponse?.status) === 'chờ xác nhận ' ||
-                String(item.item.status) === 'chờ xác nhận '
-              ? confirmTour()
-              : null
-          }>
-          <Text style={styles.colorClick}>
-            {String(dataResponse?.status) === 'xác nhận' ||
-            String(item.item.status) === 'xác nhận'
-              ? 'Hoàn thành'
-              : String(dataResponse?.status) === 'chờ xác nhận ' ||
-                String(item.item.status) === 'chờ xác nhận '
-              ? 'Xác nhận Tour'
-              : String(dataResponse?.status) === 'finish' ||
-                String(item.item.status) === 'finish'
-              ? 'Tour kết thúc'
-              : ''}
-          </Text>
-        </TouchableOpacity>
-      </View>
+      {tour && (
+        <View style={styles.clickContainer}>
+          <TouchableOpacity
+            disabled={String(tour?.status) === 'finish' ? true : false}
+            style={[styles.clickBlock,String(tour?.status) === 'finish' && styles.opacityClick ]}
+            onPress={() => {
+              if (String(tour?.status) === 'chờ xác nhận ') {
+                console.log('1');
+                confirmTour();
+              } else if (String(tour?.status) === 'xác nhận') {
+                console.log('2');
+                finishTour();
+              } else {
+                return;
+              }
+            }}>
+            <Text style={styles.colorClick}>
+              {String(tour?.status) === 'chờ xác nhận '
+                ? 'xác nhận'
+                : String(tour?.status) === 'xác nhận'
+                ? 'hoàn thành'
+                : String(tour?.status) === 'finish'
+                ? 'Tour kết thúc'
+                : ''}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };
@@ -248,6 +317,9 @@ const styles = StyleSheet.create({
   colorClick: {
     color: 'white',
   },
+  opacityClick: {
+    opacity: 0.8
+  }
 });
 
 export default TourGuideDetail;
