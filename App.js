@@ -5,14 +5,16 @@ import {NavigationContainer} from '@react-navigation/native';
 import {RootStackNavigation} from './src/navigation/StackNavigation';
 import {store} from './src/app/store';
 import {Provider} from 'react-redux';
+import Search from './src/features/search/Search';
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <RootStackNavigation />
-      </NavigationContainer>
-    </Provider>
+    <Search />
+    // <Provider store={store}>
+    //   <NavigationContainer>
+    //     <RootStackNavigation />
+    //   </NavigationContainer>
+    // </Provider>
   );
 };
 

@@ -38,10 +38,11 @@ const TourGuideDetail = ({route}) => {
           },
         },
       );
-      console.log('response', response);
+      console.log('response', response.data);
       setLoading(false);
 
       setDataResponse(response.data);
+      setTour(response.data)
     } catch (error) {
       console.log('error', error);
       setLoading(false);
