@@ -40,7 +40,7 @@ const TourGuideDetail = ({route}) => {
       );
       console.log('response', response);
       setLoading(false);
-
+      setTour(response.data)
       setDataResponse(response.data);
     } catch (error) {
       console.log('error', error);
