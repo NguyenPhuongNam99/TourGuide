@@ -16,7 +16,7 @@ import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 import { useIsFocused } from '@react-navigation/native';
 
-const TourGuide = () => {
+const TourScheduleGo = () => {
   const data: any = useAppSelector(state => state.loginSlice.data);
   const [tour, setTour] = useState();
   const [loading, setLoading] = useState(false);
@@ -37,7 +37,7 @@ const TourGuide = () => {
         `http://206.189.37.26:8080/v1/orderTour/getOrderTourOfIdHDV/${data._id}`,
         config,
       );
-      setTour(response.data);
+      setTour(response.data.filter((itemFormat) => itemFormat.item.status == 'chờ xác nhận '));
       console.log('data sstatus', response.data.filter((itemFormat) => itemFormat.item.status == 'chờ xác nhận '))
       setLoading(false);
     } catch (error) {
@@ -55,7 +55,7 @@ const TourGuide = () => {
       <View style={styles.headerContainer}>
         <View style={styles.blockHeader}>
           <AppIoniconss name="chevron-back" size={20} onPress={() => navigation.goBack()} />
-          <Text style={styles.fontBold}>Tour đã dẫn </Text>
+          <Text style={styles.fontBold}>Tour khởi hành </Text>
           <View />
         </View>
       </View>
@@ -189,4 +189,4 @@ const styles = StyleSheet.create({
     height: '100%'
   }
 });
-export default TourGuide;
+export default TourScheduleGo;

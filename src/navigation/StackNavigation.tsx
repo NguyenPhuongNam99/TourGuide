@@ -14,12 +14,16 @@ import TourGuide from '../features/tourguide/TourGuide';
 import TourGuideDetail from '../features/tour-guide-detail/TourGuideDetail';
 import TourOrdeDtail from '../features/tour-order-detail/TourOrderDetail';
 import ScheduleOverview from '../features/scheduleOverview/ScheduleOverview';
+import TourScheduleGo from '../features/tourScheduleGo/TourScheduleGo';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 const StackHome = createNativeStackNavigator();
 const RootStack = createNativeStackNavigator();
 const StackTour = createNativeStackNavigator();
+const StackTourScheduleGo = createNativeStackNavigator();
+
 
 export function StackNavigation() {
   return (
@@ -59,6 +63,17 @@ export function TourGuideNavigation() {
   );
 }
 
+export function TourGoNavigation() {
+  return (
+    <StackTourScheduleGo.Navigator screenOptions={{headerShown: false}}>
+      <StackTourScheduleGo.Screen name="TourScheduleGo" component={TourScheduleGo} />
+      <StackTourScheduleGo.Screen name="TourGuideDetail" component={TourGuideDetail} />
+      <StackTourScheduleGo.Screen name="TourOrdeDtail" component={TourOrdeDtail} />
+      <StackTourScheduleGo.Screen name="ScheduleOverview" component={ScheduleOverview} />
+    </StackTourScheduleGo.Navigator>
+  )
+}
+
 export function StackHomeNavigation() {
   return (
     <Tab.Navigator screenOptions={{headerShown: false}}>
@@ -87,7 +102,21 @@ export function StackHomeNavigation() {
               color={tabInfo.focused ? '#FF5F24' : '#9A9A9A'}
             />
           ),
-          title: 'Tour của bạn',
+          title: 'Tour đã dẫn',
+        }}
+      />
+      <Tab.Screen
+        name="TourGoNavigation"
+        component={TourGoNavigation}
+        options={{
+          tabBarIcon: tabInfo => (
+            <MaterialCommunityIcons
+              name="transit-detour"
+              size={27}
+              color={tabInfo.focused ? '#FF5F24' : '#9A9A9A'}
+            />
+          ),
+          title: 'Tour khởi hành',
         }}
       />
     </Tab.Navigator>
