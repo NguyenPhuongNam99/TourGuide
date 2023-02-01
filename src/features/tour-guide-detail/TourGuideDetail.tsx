@@ -91,8 +91,10 @@ const TourGuideDetail = ({route}) => {
         config,
       );
 
-      console.log('repo', response.data[index].item)
-      setTour(response.data[index].item);
+      console.log('repo', response.data.filter((itemList) => itemList.item._id == item.item._id))
+      const formatFile =response.data.filter((itemList) => itemList.item._id == item.item._id)
+      console.log('formatFile', formatFile[0].item.status)
+      setTour(formatFile[0].item);
       setLoading(false);
     } catch (error) {
       console.log('error', error);
@@ -104,7 +106,7 @@ const TourGuideDetail = ({route}) => {
     getTourofHDV();
   }, []);
 
-  console.log(' String(tour?.status) === ',  tour)
+  console.log(' String(tour?.status) === ',  item)
 
   return (
     <View style={styles.container}>

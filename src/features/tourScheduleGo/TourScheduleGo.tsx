@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   StyleSheet,
   View,
@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import AppIoniconss from '../../components/icon/AppIonicons';
 import AppMaterIcon from '../../components/icon/AppMaterialIcons';
-import {useAppSelector} from '../../app/store';
+import { useAppSelector } from '../../app/store';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
@@ -50,6 +50,7 @@ const TourScheduleGo = () => {
     getTourofHDV();
   }, [isFocused]);
 
+  console.log('tour', tour)
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -65,38 +66,50 @@ const TourScheduleGo = () => {
           <ActivityIndicator color={'green'} size={30} />
         </View>
       ) : (
-        <FlatList
-          data={tour}
-          renderItem={({item, index}) => {
-            return (
-              <TouchableOpacity style={styles.containerContent} onPress={() => navigation.navigate('TourGuideDetail' as never, {item: item, index: index} as never)}>
-                <View style={styles.blockContent}>
-                  <View style={styles.blockTop}>
-                    <Image
-                      style={styles.image}
-                      source={{
-                        uri: item.tourDefault.thumbnail[0].url,
-                      }}
-                    />
-                  </View>
-                  <View style={styles.blockBottom}>
-                    <Text style={styles.headerTitle}>{item.item.tourName}</Text>
-                    <Text style={{fontSize: 12}}>Trạng thái: {item.item.status == 'finish' ? 'hoàn thành' :item.item.status }</Text>
-                    <View style={styles.flexContainer}>
-                      <View style={styles.flex}>
-                        <AppMaterIcon name="place" color={'#3076FE'} />
-                        <Text style={styles.place}> Ha Noi</Text>
+        <>
+          {
+
+            tour !== undefined ? (
+              <FlatList
+                data={tour}
+                renderItem={({ item, index }) => {
+                  return (
+                    <TouchableOpacity style={styles.containerContent} onPress={() => navigation.navigate('TourGuideDetail' as never, { item: item, index: index } as never)}>
+                      <View style={styles.blockContent}>
+                        <View style={styles.blockTop}>
+                          <Image
+                            style={styles.image}
+                            source={{
+                              uri: item.tourDefault.thumbnail[0].url,
+                            }}
+                          />
+                        </View>
+                        <View style={styles.blockBottom}>
+                          <Text style={styles.headerTitle}>{item.item.tourName}</Text>
+                          <Text style={{ fontSize: 12 }}>Trạng thái: {item.item.status == 'finish' ? 'hoàn thành' : item.item.status}</Text>
+                          <View style={styles.flexContainer}>
+                            <View style={styles.flex}>
+                              <AppMaterIcon name="place" color={'#3076FE'} />
+                              <Text style={styles.place}> Ha Noi</Text>
+                            </View>
+                            <Text style={styles.price}>
+                              {item.item.total_price} dd
+                            </Text>
+                          </View>
+                        </View>
                       </View>
-                      <Text style={styles.price}>
-                        {item.item.total_price} dd
-                      </Text>
-                    </View>
-                  </View>
+                    </TouchableOpacity>
+                  );
+                }}
+              />
+            )
+              : (
+                <View style={{ width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center', backgroundColor: 'green' }}>
+                  <Text>Không có dữ liệu</Text>
                 </View>
-              </TouchableOpacity>
-            );
-          }}
-        />
+              )
+          }
+        </>
       )}
     </View>
   );
@@ -184,7 +197,7 @@ const styles = StyleSheet.create({
   },
   justify: {
     justifyContent: 'center',
-    alignItems:'center',
+    alignItems: 'center',
     width: '100%',
     height: '100%'
   }

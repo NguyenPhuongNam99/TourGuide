@@ -94,6 +94,7 @@ const Login = () => {
                     onChangeText={handleChange('password')}
                     onBlur={handleBlur('password')}
                     value={values.password}
+                    secureTextEntry={true}
                   />
                 </View>
                 {errors.password && touched.password ? (
